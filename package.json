@@ -1,0 +1,26 @@
+{
+  "name": "project-horizon",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@9.15.9",
+  "description": "Project Horizon - scenic arcade racing multiplayer (browser)",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "dev:web": "pnpm --filter @horizon/web dev",
+    "dev:server": "pnpm --filter @horizon/server dev",
+    "build": "pnpm --filter @horizon/shared build && pnpm --filter @horizon/server build && pnpm --filter @horizon/web build",
+    "typecheck": "pnpm -r typecheck",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "e2e": "playwright test",
+    "start": "pnpm --filter @horizon/server start",
+    "clean": "rm -rf apps/*/dist packages/*/dist node_modules/.vite test-results"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.1",
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}
